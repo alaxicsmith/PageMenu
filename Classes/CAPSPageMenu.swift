@@ -379,7 +379,12 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         
         // Set background color behind scroll views and for menu scroll view
         self.view.backgroundColor = viewBackgroundColor
-        menuScrollView.backgroundColor = scrollMenuBackgroundColor
+        let gradient = CAGradientLayer()
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.frame = menuScrollView.frame.bounds
+        gradient.colors = [UIColor(red:0.19, green:0.22, blue:0.33, alpha:1.0).cgColor, UIColor(red:0.18, green:0.18, blue:0.31, alpha:1.0).cgColor]
+        self.menuScrollView.layer.insertSublayer(gradient, at: 0)
     }
     
     func configureUserInterface() {
